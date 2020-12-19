@@ -56,3 +56,5 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'simple_form'
 gem 'autoprefixer-rails'
 gem 'font-awesome-sass'
+gem 'dotenv-rails', groups: [:development, :test]
+gem 'cloudinary'
