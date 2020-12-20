@@ -1,0 +1,6 @@
+<%= simple_form_for(@expert) do |f| %>
+  <%= f.association :title, collection: Title.all.order(:long_title) %>
+  <%= f.input :last_name %>
+  <%= f.input :first_name %>
+  <%= f.submit %>
+<% end %>
