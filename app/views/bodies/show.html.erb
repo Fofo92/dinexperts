@@ -1,0 +1,5 @@
+<h1>Informations détaillée sur l'entité <%= @body.short_name %></h1>
+<p><strong>Nom : </strong><%= @body.short_name %></p>
+<p><strong>Prénom : </strong><%= @body.long_name %></p>
+<p><strong>Commentaire : </strong><%= @body.comment %></p>
+<%= link_to "Retour à la liste d'entité", bodies_path, class: 'btn btn-flat btn-sm' %>

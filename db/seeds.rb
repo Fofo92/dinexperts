@@ -22,10 +22,10 @@ puts ''
 puts 'Start seeding experts'
 CSV.foreach(filepath) do |row|
   if Expert.create(title_id: row[0], last_name: row[1], first_name: row[2])
-    puts "Expert: #{row[0]}, #{row[1]} -> OK "
+    puts "Expert: #{row[1]}, #{row[2]} -> OK "
   else
-    puts "Expert: #{row[0]}, #{row[1]} -> NOK "
+    puts "Expert: #{row[1]}, #{row[2]} -> NOK "
   end
-puts 'End seeding experts'
 end
+puts 'End seeding experts'
 

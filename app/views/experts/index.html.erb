@@ -8,7 +8,11 @@
 <table class='table table-striped table-sm'>
   <thead>
     <tr>
-      <th scope="col">Title</th><th scope="col">Nom</th><th scope="col">Prénom</th><th scope="col">Actions</th>
+      <th scope="col">Title</th>
+      <th scope="col">Nom</th>
+      <th scope="col">Prénom</th>
+      <th scope="col">Actif</th>
+      <th scope="col">Actions</th>
     </tr>
   </thead>
   <tbody>
@@ -17,6 +21,7 @@
         <td><%= expert.title.short_title %></td>
         <th scope="row"><%= expert.last_name %></th>
         <td><%= expert.first_name %></td>
+        <td><%= expert.active ? "<i class='fas fa-check-square'></i>".html_safe : "<i class='fas fa-ban'></i></i>".html_safe %></td>
         <td>
           <ul class="list-inline mb-0">
             <li class="list-inline-item">

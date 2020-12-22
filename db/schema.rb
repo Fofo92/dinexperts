@@ -10,10 +10,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_12_20_091644) do
+ActiveRecord::Schema.define(version: 2020_12_22_143417) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "bodies", force: :cascade do |t|
+    t.string "long_name"
+    t.string "short_name"
+    t.text "comment"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
 
   create_table "experts", force: :cascade do |t|
     t.string "last_name"
@@ -21,6 +29,7 @@ ActiveRecord::Schema.define(version: 2020_12_20_091644) do
     t.bigint "title_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.boolean "active", default: true
     t.index ["title_id"], name: "index_experts_on_title_id"
   end
 
