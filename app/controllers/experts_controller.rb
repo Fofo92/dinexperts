@@ -37,6 +37,9 @@ class ExpertsController < ApplicationController
     redirect_to experts_path
   end
 
+  def parse
+  end
+
   private
 
   def set_expert
@@ -44,6 +47,6 @@ class ExpertsController < ApplicationController
   end
 
   def expert_params
-    params.require(:expert).permit(:last_name, :first_name, :title_id, :active)
+    params.require(:expert).permit(:last_name, :first_name, :title_id, :active, :body_id)
   end
 end

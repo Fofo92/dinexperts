@@ -1,5 +1,5 @@
 <div class='d-inline'>
-<h1 class='float-left'>Liste des entités <%= pluralize(@bodies.count, 'body') %></h1>
+<h1 class='float-left'>Liste des <%= pluralize(@bodies.count, 'entité', plural: 'entités') %></h1>
 </div>
 <div class='d-inline '>
   <%= link_to 'Ajouter une entité', new_body_path, class: 'float-right btn btn-flat btn-sm' %>
@@ -10,7 +10,8 @@
     <tr>
       <th scope="col">Acronyme</th>
       <th scope="col">Nom</th>
-      <th scope="col">Commentaire</th>
+      <th scope="col">Ancestry</th>
+      <th scope="col">Actions</th>
     </tr>
   </thead>
   <tbody>
@@ -18,6 +19,7 @@
       <tr>
         <th scope="row"><%= body.short_name %></th>
         <td><%= body.long_name %></td>
+        <td><%= body.ancestry %></td>
         <td>
           <ul class="list-inline mb-0">
             <li class="list-inline-item">

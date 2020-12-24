@@ -2,5 +2,6 @@
   <%= f.input :short_name %>
   <%= f.input :long_name %>
   <%= f.input :comment, as: :text %>
+  <%= f.input :parent_id, label_method: :short_name, collection: Body.all, include_blank: true %>
   <%= f.submit class: 'btn btn-flat'%>
 <% end %>
