@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_12_24_070425) do
+ActiveRecord::Schema.define(version: 2020_12_24_225558) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -37,6 +37,25 @@ ActiveRecord::Schema.define(version: 2020_12_24_070425) do
     t.index ["title_id"], name: "index_experts_on_title_id"
   end
 
+  create_table "membership_types", force: :cascade do |t|
+    t.string "long_name"
+    t.string "short_name"
+    t.text "comment"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "memberships", force: :cascade do |t|
+    t.bigint "expert_id", null: false
+    t.bigint "body_id", null: false
+    t.bigint "membership_type_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["body_id"], name: "index_memberships_on_body_id"
+    t.index ["expert_id"], name: "index_memberships_on_expert_id"
+    t.index ["membership_type_id"], name: "index_memberships_on_membership_type_id"
+  end
+
   create_table "titles", force: :cascade do |t|
     t.string "long_title"
     t.string "short_title"
@@ -58,4 +77,7 @@ ActiveRecord::Schema.define(version: 2020_12_24_070425) do
 
   add_foreign_key "experts", "bodies"
   add_foreign_key "experts", "titles"
+  add_foreign_key "memberships", "bodies"
+  add_foreign_key "memberships", "experts"
+  add_foreign_key "memberships", "membership_types"
 end

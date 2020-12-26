@@ -1,0 +1,5 @@
+<%= simple_form_for [@expert, @membership] do |f| %>
+  <%= f.association :body, label_method: :short_name, collection: Body.order(:short_name), include_blank: false %>
+  <%= f.association :membership_type, label_method: :short_name, collection: MembershipType.order(:short_name), include_blank: false %>
+  <%= f.submit class: 'btn btn-flat'%>
+<% end %>

@@ -1,0 +1,4 @@
+<h1>Liste des inscriptions</h1>
+<% @memberships.each do |membership| %>
+  <%= membership.expert.full_name %> <%= membership.body.short_name %>
+<% end %>

@@ -1,21 +1,19 @@
-<h1>Informations détaillée sur l'organisme <%= @body.short_name %></h1>
-<p><strong>Nom : </strong><%= @body.short_name %></p>
-<p><strong>Prénom : </strong><%= @body.long_name %></p>
-<p><strong>Commentaire : </strong><%= @body.comment %></p>
-<h2>Organismes dépendants de <%= @body.short_name %> (<%= pluralize(@body.children.count, 'entité', plural: 'entités') %>)</h2>
+<h1 class='float-left'>Liste des <%= pluralize(@bodies.count, 'entité', plural: 'entités') %></h1>
 <table class='table table-striped table-sm'>
   <thead>
     <tr>
       <th scope="col">Acronyme</th>
       <th scope="col">Nom</th>
+      <th scope="col">Ancestry</th>
       <th scope="col">Actions</th>
     </tr>
   </thead>
   <tbody>
-    <% @body.children.each do |body| %>
+    <% @bodies.order(:short_name).each do |body| %>
       <tr>
-        <th scope="row"><%= link_to body.short_name, body_path(body) %></th>
-        <td><%= link_to body.long_name, body_path(body) %></td>
+        <th scope="row"><%= body.short_name %></th>
+        <td><%= body.long_name %></td>
+        <td><%= body.ancestry %></td>
         <td>
           <ul class="list-inline mb-0">
             <li class="list-inline-item">
@@ -37,4 +35,6 @@
     <% end %>
   </tbody>
 </table>
-<%= link_to "Retour à la liste d'entité", bodies_path, class: 'btn btn-flat btn-sm' %>
+<div class='d-inline '>
+  <%= link_to 'Ajouter une entité', new_body_path, class: 'float-right btn btn-flat btn-sm' %>
+</div>
