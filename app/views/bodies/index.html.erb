@@ -8,6 +8,8 @@
       <tr>
         <th scope="col">Acronyme</th>
         <th scope="col">Nom</th>
+        <th scope="col">Début</th>
+        <th scope="col">Fin</th>
         <th scope="col">Actions</th>
       </tr>
     </thead>
@@ -16,6 +18,7 @@
           <tr>
             <th scope="row"><%= link_to body.short_name, body_path(body) %></th>
             <td><%= link_to body.long_name, body_path(body) %></td>
+            <td><%= body.starting_date %></td><td><%= body.ending_date %></td>
             <td>
               <ul class="list-inline mb-0">
                 <li class="list-inline-item">
