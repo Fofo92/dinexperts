@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_12_26_122116) do
+ActiveRecord::Schema.define(version: 2020_12_26_202206) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -24,6 +24,7 @@ ActiveRecord::Schema.define(version: 2020_12_26_122116) do
     t.string "ancestry"
     t.date "starting_date"
     t.date "ending_date"
+    t.boolean "active", default: true
     t.index ["ancestry"], name: "index_bodies_on_ancestry"
   end
 

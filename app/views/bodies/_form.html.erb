@@ -3,6 +3,7 @@
   <%= f.input :long_name %>
   <%= f.input :starting_date, as: :string %>
   <%= f.input :ending_date, as: :string %>
+  <%= f.input :active %>
   <%= f.input :comment, as: :text %>
   <%= f.input :parent_id, label_method: :short_name, collection: Body.all, include_blank: true %>
   <%= f.submit class: 'btn btn-flat'%>

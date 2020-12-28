@@ -5,6 +5,7 @@
       <th scope="col">Acronyme</th>
       <th scope="col">Nom</th>
       <th scope="col">Ancestry</th>
+      <th scope="col">Active</th>
       <th scope="col">Actions</th>
     </tr>
   </thead>
@@ -14,6 +15,7 @@
         <th scope="row"><%= body.short_name %></th>
         <td><%= body.long_name %></td>
         <td><%= body.ancestry %></td>
+        <td><%= body.active ? "<i class='fas fa-check-square'></i>".html_safe : "<i class='fas fa-ban'></i></i>".html_safe %></td>
         <td>
           <ul class="list-inline mb-0">
             <li class="list-inline-item">
