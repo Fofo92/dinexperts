@@ -1,13 +1,13 @@
-<h1>Informations détaillée sur l'organisme <%= @body.short_name %></h1>
+<h1>Informations détaillée sur l'organisme <%= @body.full_short_name %></h1>
 <p><strong>Nom : </strong><%= @body.full_long_name %></p>
 <p><strong>Acronyme : </strong><%= @body.full_short_name %></p>
 <p>
   <strong>Début : </strong><%= @body.starting_date.nil? ? "Indéterminé" : @body.starting_date  %>,
-  <strong>Fin : </strong><%= @body.ending_date.nil? ? "En cours" : @body.ending_date  %>,
+  <strong>Fin : </strong><%= @body.ending_date.nil? ? "Indéterminé" : @body.ending_date  %>,
   Entité <strong><%= @body.active ? 'active' : 'dormante' %></strong>
 </p>
 <p><strong>Commentaire : </strong><%= @body.comment %></p>
-<h2>Organismes dépendants de <%= @body.short_name %> (<%= pluralize(@body.children.count, 'entité', plural: 'entités') %>)</h2>
+<h3>Organismes dépendants de <%= @body.full_short_name %> (<%= pluralize(@body.children.count, 'entité', plural: 'entités') %>)</h3>
 <table class='table table-striped table-sm'>
   <thead>
     <tr>
@@ -24,7 +24,7 @@
     <% @body.children.each do |body| %>
       <tr>
         <th><%= body.id %></th>
-        <th scope="row"><%= link_to body.short_name, body_path(body) %></th>
+        <th scope="row"><%= link_to body.full_short_name, body_path(body) %></th>
         <td><%= link_to body.long_name, body_path(body) %></td>
         <td><%= body.starting_date.nil? ? 'Indéterminé' : body.starting_date %></td>
         <td><%= body.ending_date.nil? ? 'En cours' : body.ending_date %></td>

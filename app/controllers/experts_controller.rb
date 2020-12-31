@@ -2,7 +2,9 @@ class ExpertsController < ApplicationController
   before_action :set_expert, only: [:show, :edit, :update, :destroy]
 
   def index
-    @experts = Expert.all
+    @q = Expert.ransack(params[:q])
+    @experts = @q.result
+    # @experts = Expert.all
   end
 
   def new
