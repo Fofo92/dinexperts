@@ -3,7 +3,6 @@ class ExpertsController < ApplicationController
   def index
     @experts = Expert.all
   end
-
   def new
     @expert = Expert.new
   end

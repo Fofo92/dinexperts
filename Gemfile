@@ -60,3 +60,4 @@ gem 'dotenv-rails', groups: [:development, :test]
 gem 'cloudinary'
 gem 'devise'
 gem 'ancestry'
+gem 'pundit'
