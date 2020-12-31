@@ -10,10 +10,12 @@ class BodiesController < ApplicationController
 
   def new
     @body = Body.new
+    authorize @body
   end
 
   def create
     @body = Body.new(body_params)
+    authorize @body
     if @body.save
       redirect_to body_path(@body)
     else
@@ -41,6 +43,7 @@ class BodiesController < ApplicationController
 
   def set_body
     @body = Body.find(params[:id])
+    authorize @body
   end
 
   def body_params

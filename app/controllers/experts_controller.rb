@@ -1,10 +1,13 @@
 class ExpertsController < ApplicationController
   before_action :set_expert, only: [:show, :edit, :update, :destroy]
+
   def index
     @experts = Expert.all
   end
+
   def new
     @expert = Expert.new
+    authorize @expert
   end
 
   def show
@@ -12,12 +15,12 @@ class ExpertsController < ApplicationController
 
   def create
     @expert = Expert.new(expert_params)
+    authorize @expert
     if @expert.save
       redirect_to experts_path(@expert)
     else
       render :new
     end
-
   end
 
   def edit
@@ -36,13 +39,11 @@ class ExpertsController < ApplicationController
     redirect_to experts_path
   end
 
-  def parse
-  end
-
   private
 
   def set_expert
     @expert = Expert.find(params[:id])
+    authorize @expert
   end
 
   def expert_params

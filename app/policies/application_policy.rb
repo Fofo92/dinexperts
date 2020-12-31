@@ -11,11 +11,11 @@ class ApplicationPolicy
   end
 
   def show?
-    false
+    true
   end
 
   def create?
-    false || user.admin?
+    true
   end
 
   def new?
@@ -23,7 +23,7 @@ class ApplicationPolicy
   end
 
   def update?
-    false || user.admin?
+    true
   end
 
   def edit?
@@ -31,7 +31,7 @@ class ApplicationPolicy
   end
 
   def destroy?
-    false || user.admin?
+    true
   end
 
   class Scope
