@@ -1,0 +1,6 @@
+<%= simple_form_for(@membership_type) do |f| %>
+  <%= f.input :short_name %>
+  <%= f.input :long_name %>
+  <%= f.input :comment, as: :text %>
+  <%= f.submit class: 'btn btn-flat'%>
+<% end %>

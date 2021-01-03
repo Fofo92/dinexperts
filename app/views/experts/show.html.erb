@@ -28,15 +28,12 @@
         <td>
           <ul class="list-inline mb-0">
             <li class="list-inline-item">
-              <%= link_to 'new_expert_membership_path' do %><i class="fas fa-eye m-0"></i><% end %>
-            </li>
-            <li class="list-inline-item">
               <%= link_to '#' do %>
                 <i class="fas fa-edit list-inline-item"></i>
               <% end %>
             </li>
             <li class="list-inline-item">
-              <%= link_to '#', method: :delete, data: {confirm: "Êtes vous sûr ?"} do %>
+              <%= link_to membership_path(membership), method: :delete, data: {confirm: "Êtes vous sûr ?"} do %>
                 <i class="fas fa-trash-alt list-inline-item"></i>
               <% end %>
             </li>
@@ -46,5 +43,5 @@
 
   </tbody>
 </table>
-<%= link_to "ajouter une inscription", new_expert_membership_path(@expert) %>
+<%= link_to "Ajouter une inscription", new_expert_membership_path(@expert) %>
 <%= link_to "Retour à la liste d'experts", experts_path, class: 'btn btn-flat btn-sm' %>

@@ -19,7 +19,7 @@ class ExpertsController < ApplicationController
     @expert = Expert.new(expert_params)
     authorize @expert
     if @expert.save
-      redirect_to experts_path(@expert)
+      redirect_to expert_path(@expert)
     else
       render :new
     end

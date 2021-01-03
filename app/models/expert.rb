@@ -4,7 +4,7 @@ class Expert < ApplicationRecord
   validates :last_name, presence: true
   validates :first_name, presence: true
   validates :last_name, uniqueness: { scope: :first_name }
-  has_many :memberships
+  has_many :memberships # , dependent: :destroy
   has_many :bodies, through: :membership
 
   def full_name
