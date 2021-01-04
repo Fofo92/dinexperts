@@ -16,16 +16,24 @@ class MembershipsController < ApplicationController
     @expert = Expert.find(params[:expert_id])
     @membership.expert = @expert
     if @membership.save
-      redirect_to expert_memberships_path(@expert)
+      redirect_to expert_path(@expert)
     else
       render :new
     end
   end
 
   def edit
+    @expert = Expert.find(params[:expert_id])
   end
 
   def update
+    @expert = Expert.find(params[:expert_id])
+    @membership.expert = @expert
+    if @membership.update(membership_params)
+      redirect_to expert_path(@expert)
+    else
+      render :edit
+    end
   end
 
   def destroy
