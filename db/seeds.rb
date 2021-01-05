@@ -14,7 +14,24 @@ Title.create(short_title: 'Dr.', long_title: 'Docteur')
 Title.create(short_title: 'Pr.', long_title: 'Professeur')
 puts 'Seeding titles ended'
 
+puts ''
+puts 'start seeding membership types'
+MembershipType.create(short_name: 'S1', long_name: 'Speaker 1')
+MembershipType.create(short_name: 'S2', long_name: 'Speaker 2')
+MembershipType.create(short_name: 'S3', long_name: 'Speaker 3')
+MembershipType.create(short_name: 'D1', long_name: 'Deputy Speaker 1')
+MembershipType.create(short_name: 'D2', long_name: 'Deputy Speaker 2')
+MembershipType.create(short_name: 'D3', long_name: 'Deputy Speaker 3')
+MembershipType.create(short_name: 'D4', long_name: 'Deputy Speaker 4')
+MembershipType.create(short_name: 'IM', long_name: 'Member (informed')
+MembershipType.create(short_name: 'AM', long_name: 'Member (active)')
+MembershipType.create(short_name: 'C', long_name: 'Conveynor')
+MembershipType.create(short_name: 'P', long_name: 'President')
+MembershipType.create(short_name: 'Se', long_name: 'Secretary')
 
+
+
+puts 'seeding membership types ended'
 
 filepath = 'db/seed_data/bodies.csv'
 puts ''
