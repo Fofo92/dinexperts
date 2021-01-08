@@ -30,6 +30,6 @@ class ExpertPolicy < ApplicationPolicy
   end
 
   def destroy?
-    true
+    false || user.admin?
   end
 end

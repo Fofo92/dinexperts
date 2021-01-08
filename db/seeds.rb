@@ -28,9 +28,6 @@ MembershipType.create(short_name: 'AM', long_name: 'Member (active)')
 MembershipType.create(short_name: 'C', long_name: 'Conveynor')
 MembershipType.create(short_name: 'P', long_name: 'President')
 MembershipType.create(short_name: 'Se', long_name: 'Secretary')
-
-
-
 puts 'seeding membership types ended'
 
 filepath = 'db/seed_data/bodies.csv'
