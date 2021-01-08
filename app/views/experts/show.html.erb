@@ -28,13 +28,17 @@
         <td>
           <ul class="list-inline mb-0">
             <li class="list-inline-item">
-              <%= link_to edit_expert_membership_path(@expert, membership) do %>
-                <i class="fas fa-edit list-inline-item"></i>
+              <% if policy(Membership).update? %>
+                <%= link_to edit_expert_membership_path(@expert, membership) do %>
+                  <i class="fas fa-edit list-inline-item"></i>
+                <% end %>
               <% end %>
             </li>
             <li class="list-inline-item">
-              <%= link_to membership_path(membership), method: :delete, data: {confirm: "Êtes vous sûr ?"} do %>
-                <i class="fas fa-trash-alt list-inline-item"></i>
+              <% if policy(Membership).destroy? %>
+                <%= link_to membership_path(membership), method: :delete, data: {confirm: "Êtes vous sûr ?"} do %>
+                  <i class="fas fa-trash-alt list-inline-item"></i>
+                <% end %>
               <% end %>
             </li>
           </ul>
@@ -43,5 +47,7 @@
 
   </tbody>
 </table>
-<%= link_to "Ajouter une inscription", new_expert_membership_path(@expert) %>
+<% if policy(Membership).create? %>
+  <%= link_to "Ajouter une inscription", new_expert_membership_path(@expert) %>
+<% end %>
 <%= link_to "Retour à la liste d'experts", experts_path, class: 'btn btn-flat btn-sm' %>

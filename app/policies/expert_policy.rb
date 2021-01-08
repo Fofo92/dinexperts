@@ -10,7 +10,7 @@ class ExpertPolicy < ApplicationPolicy
   end
 
   def show?
-    false || user.admin?
+    true
   end
 
   def create?
