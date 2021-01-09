@@ -13,6 +13,8 @@
   <thead>
     <tr>
       <th scope="col">Inscription</th>
+      <th scope="col">Entité</th>
+      <th scope="col">Fonction</th>
       <th scope="col">Actions</th>
     </tr>
   </thead>
@@ -25,6 +27,8 @@
           <% end %>
           <strong><%= membership.body.short_name %></strong>
         </td>
+        <td><%= membership.body.long_name %></td>
+        <td><%= membership.membership_type.long_name %></td>
         <td>
           <ul class="list-inline mb-0">
             <li class="list-inline-item">
