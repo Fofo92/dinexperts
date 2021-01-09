@@ -15,6 +15,8 @@
       <th scope="col">Inscription</th>
       <th scope="col">Entité</th>
       <th scope="col">Fonction</th>
+      <th scope="col">Date début</th>
+      <th scope="col">Date fin</th>
       <th scope="col">Actions</th>
     </tr>
   </thead>
@@ -29,6 +31,8 @@
         </td>
         <td><%= membership.body.long_name %></td>
         <td><%= membership.membership_type.long_name %></td>
+        <td><%= membership.starting_at %></td>
+        <td><%= membership.ending_at %></td>
         <td>
           <ul class="list-inline mb-0">
             <li class="list-inline-item">
@@ -52,6 +56,6 @@
   </tbody>
 </table>
 <% if policy(Membership).create? %>
-  <%= link_to "Ajouter une inscription", new_expert_membership_path(@expert) %>
+  <%= link_to "Ajouter une inscription pour #{@expert.full_name}", new_expert_membership_path(@expert) %>
 <% end %>
 <%= link_to "Retour à la liste d'experts", experts_path, class: 'btn btn-flat btn-sm' %>

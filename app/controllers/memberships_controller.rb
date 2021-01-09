@@ -49,6 +49,6 @@ class MembershipsController < ApplicationController
   end
 
   def membership_params
-    params.require(:membership).permit(:expert_id, :body_id, :membership_type_id)
+    params.require(:membership).permit(:expert_id, :body_id, :membership_type_id, :starting_at, :ending_at, :comment)
   end
 end
