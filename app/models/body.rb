@@ -20,4 +20,8 @@ class Body < ApplicationRecord
     end
     string += self.long_name
   end
+
+  def full_name
+    "#{self.full_short_name}: #{self.long_name}"
+  end
 end

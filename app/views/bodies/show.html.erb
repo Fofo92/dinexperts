@@ -56,4 +56,7 @@
     <% end %>
   </tbody>
 </table>
+<% if policy(Body).create? %>
+  <%= link_to "Ajouter un organisme dépendant de #{@body.full_short_name}", new_body_path %>
+<% end %>
 <%= link_to "Retour à la liste d'entité", bodies_path, class: 'btn btn-flat btn-sm' %>
