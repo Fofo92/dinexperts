@@ -5,6 +5,9 @@ Rails.application.routes.draw do
   resources :experts do
     resources :memberships, only: [:index, :new, :create, :edit, :update]
   end
+  resources :bodies do
+    resources :memberships, only: [:index, :new, :create, :edit, :update]
+  end
   resources :memberships, only: [:destroy]
   resources :bodies
   resources :membership_types
