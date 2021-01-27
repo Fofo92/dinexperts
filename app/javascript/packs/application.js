@@ -17,8 +17,10 @@ require("channels")
 // const imagePath = (name) => images(name, true)
 
 import 'bootstrap';
-import { initSelect2 } from '../components/init_select2';
+import { initSelect2 } from '../plugins/init_select2';
+import { initFlatpickr } from '../plugins/init_flatpickr';
 
 document.addEventListener("turbolinks:load", function() {
   initSelect2();
+  initFlatpickr();
 });
