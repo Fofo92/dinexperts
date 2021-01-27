@@ -1,8 +1,10 @@
 <%= simple_form_for(@body) do |f| %>
   <%= f.input :short_name %>
   <%= f.input :long_name %>
-  <%= f.input :starting_date, as: :string %>
-  <%= f.input :ending_date, as: :string %>
+  <%= f.input :starting_date, as: :string, required: false,
+    input_html: {class: "datepicker"} %>
+  <%= f.input :ending_date, as: :string, required: false,
+    input_html: {class: "datepicker"} %>
   <%= f.input :active %>
   <%= f.input :comment, as: :text %>
   <%= f.input :parent_id, label_method: :short_name, collection: Body.all, include_blank: true %>
