@@ -30,13 +30,20 @@
           </li>
         <% end %>
         <li class="nav-item dropdown">
-          <%= image_tag "https://res.cloudinary.com/fofo921/image/upload/v1608396923/ssaunier_s7thyk.jpg",
-            class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
-          <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-            <div class="dropdown-item">Utilisateur : <%= current_user.email %></div>
-            <div class="dropdown-item">Accès comme <%= current_user.admin? ? 'Administrateur' : 'Membre' %></div>
-            <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
-          </div>
+          <% if user_signed_in? %>
+            <% if current_user.photo.attached? %>
+              <%= cl_image_tag current_user.photo.key, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+            <% else %>
+              <%= cl_image_tag "https://res.cloudinary.com/fofo921/image/upload/v1613821152/lwksi57wmg6o4l7wfk61h2urg0op.png",
+                class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+            <% end %>
+            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+              <div class="dropdown-item">Utilisateur : <%= current_user.email %></div>
+              <div class="dropdown-item">Accès comme <%= current_user.admin? ? 'Administrateur' : 'Membre' %></div>
+              <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
+            </div>
+
+          <% end %>
         </li>
       <% else %>
         <li class="nav-item">
